@@ -71,3 +71,12 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## Configuration
+
+Set up the following variables in a .env file.
+
+DATABASE_USER
+DATABASE_PASSWORD
+DATABASE_PORT
+DATABASE_NAME
