@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GameTypes } from './gameTypes/gameType.entity';
 import { GameTypeModule } from './gameTypes/gameType.module';
+import { Model } from './models/model.entity';
 
 @Module({
   imports: [    
@@ -12,9 +13,9 @@ import { GameTypeModule } from './gameTypes/gameType.module';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: 'password',
-      database: 'jaceplute',
-      entities: [GameTypes],
+      password: 'postgres',
+      database: 'postgres',
+      entities: [GameTypes, Model],
       synchronize: true,
     }), 
     GameTypeModule
