@@ -1,4 +1,4 @@
-import { GameTypes } from 'src/gameTypes/gameType.entity';
+import { GameTypes } from '../gameTypes/gameType.entity';
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ schema: 'wht_ref', name: 'models'})
@@ -13,8 +13,7 @@ export class Model {
     @JoinColumn({name: 'game_type_id'})
     @Column({ type: 'integer'})
     game_type_id: number;
-
-
+ß
     @Column({ type: 'varchar'})
     faction: string;
 
