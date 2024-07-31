@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GameTypes } from './gameTypes/gameType.entity';
 import { GameTypeModule } from './gameTypes/gameType.module';
+import { ConfigModule } from '@nestjs/config';
 import { Model } from './models/model.entity';
 import { ModelModule } from './models/model.module';
 
@@ -12,14 +13,15 @@ import { ModelModule } from './models/model.module';
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'postgres',
-      entities: [GameTypes, Model],
+      port: parseInt(process.env.DATABASE_PORT),
+      username: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
+      database: process.env.DATABASE_NAME,
+      entities: [GameTypes],
       synchronize: true,
     }), 
-    GameTypeModule, 
+    ConfigModule.forRoot(),
+    GameTypeModule,
     ModelModule
   ],
   controllers: [AppController],
