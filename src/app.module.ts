@@ -5,6 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { GameTypes } from './gameTypes/gameType.entity';
 import { GameTypeModule } from './gameTypes/gameType.module';
 import { ConfigModule } from '@nestjs/config';
+import { Model } from './models/model.entity';
+import { ModelModule } from './models/model.module';
 
 @Module({
   imports: [    
@@ -19,7 +21,8 @@ import { ConfigModule } from '@nestjs/config';
       synchronize: true,
     }), 
     ConfigModule.forRoot(),
-    GameTypeModule
+    GameTypeModule,
+    ModelModule
   ],
   controllers: [AppController],
   providers: [AppService],
