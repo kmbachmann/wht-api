@@ -13,7 +13,7 @@ export class Model {
     @JoinColumn({name: 'game_type_id'})
     @Column({ type: 'integer'})
     game_type_id: number;
-ß
+
     @Column({ type: 'varchar'})
     faction: string;
 

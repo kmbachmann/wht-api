@@ -5,8 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { GameTypes } from './gameTypes/gameType.entity';
 import { GameTypeModule } from './gameTypes/gameType.module';
 import { ConfigModule } from '@nestjs/config';
-import { Model } from './models/model.entity';
 import { ModelModule } from './models/model.module';
+import { Model } from './models/model.entity';
 
 @Module({
   imports: [    
@@ -17,7 +17,7 @@ import { ModelModule } from './models/model.module';
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
-      entities: [GameTypes],
+      entities: [GameTypes, Model],
       synchronize: true,
     }), 
     ConfigModule.forRoot(),
