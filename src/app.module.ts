@@ -7,6 +7,9 @@ import { GameTypeModule } from './gameTypes/gameType.module';
 import { ConfigModule } from '@nestjs/config';
 import { ModelModule } from './models/model.module';
 import { Model } from './models/model.entity';
+import { User } from './users/user.entity';
+import { Project } from './projects/project.entity';
+import { ProjectModule } from './projects/project.module';
 
 @Module({
   imports: [    
@@ -17,12 +20,13 @@ import { Model } from './models/model.entity';
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
-      entities: [GameTypes, Model],
+      entities: [GameTypes, Model, User, Project],
       synchronize: true,
     }), 
     ConfigModule.forRoot(),
     GameTypeModule,
-    ModelModule
+    ModelModule,
+    ProjectModule
   ],
   controllers: [AppController],
   providers: [AppService],
